@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<project name="CaptchaGoogle" description="Google Invisible reCAPTCHA Plugin" default="git" >
+	<import file="${phing.dir}/../buildfiles/phing/common.xml" />
+
+	<target name="package-pkg" description="Installation package" depends="new-release, setup-properties, package-plugins" />
+
+	<target name="documentation" description="The documentation" />
+
+	<target name="docsdeploy" />
+</project>

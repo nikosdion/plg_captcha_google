@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="captcha" method="upgrade">
+	<name>plg_captcha_google</name>
+	<version>1.0</version>
+	<creationDate>2024-10-17</creationDate>
+	<author>Nicholas K. Dionysopoulos</author>
+	<authorEmail>nicholas_NOSPAM@dionysopoulos.me</authorEmail>
+	<authorUrl>https://www.dionysopoulos.me</authorUrl>
+	<copyright>(C) 2024 Nicholas K. Dionysopoulos</copyright>
+	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+	<description>PLG_CAPTCHA_GOOGLE_XML_DESCRIPTION</description>
+	<namespace path="src">Dionysopoulos\Plugin\Captcha\Google</namespace>
+	<files>
+		<folder plugin="google">services</folder>
+		<folder>src</folder>
+		<folder>vendor</folder>
+	</files>
+	<media folder="media" destination="plg_captcha_google">
+		<folder>css</folder>
+		<folder>js</folder>
+	</media>
+	<languages>
+		<language tag="en-GB">language/en-GB/plg_captcha_google.ini</language>
+		<language tag="en-GB">language/en-GB/plg_captcha_google.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+
+				<field
+					name="public_key"
+					type="text"
+					label="PLG_CAPTCHA_GOOGLE_PUBLIC_KEY_LABEL"
+					description="PLG_CAPTCHA_GOOGLE_PUBLIC_KEY_DESC"
+					default=""
+					required="true"
+					filter="string"
+					class="input-xxlarge"
+				/>
+
+				<field
+					name="private_key"
+					type="text"
+					label="PLG_CAPTCHA_GOOGLE_PRIVATE_KEY_LABEL"
+					description="PLG_CAPTCHA_GOOGLE_PRIVATE_KEY_DESC"
+					default=""
+					required="true"
+					filter="string"
+					class="input-xxlarge"
+				/>
+
+				<field
+					name="badge"
+					type="list"
+					label="PLG_CAPTCHA_GOOGLE_BADGE_LABEL"
+					description="PLG_CAPTCHA_GOOGLE_BADGE_DESC"
+					default="inline"
+					validate="options"
+					>
+					<option value="bottomright">PLG_CAPTCHA_GOOGLE_BADGE_BOTTOMRIGHT</option>
+					<option value="bottomleft">PLG_CAPTCHA_GOOGLE_BADGE_BOTTOMLEFT</option>
+					<option value="inline">PLG_CAPTCHA_GOOGLE_BADGE_INLINE</option>
+				</field>
+
+				<field
+					name="tabindex"
+					type="number"
+					label="PLG_CAPTCHA_GOOGLE_TABINDEX_LABEL"
+					description="PLG_CAPTCHA_GOOGLE_TABINDEX_DESC"
+					default="0"
+					min="0"
+					filter="integer"
+				/>
+
+				<field
+					name="callback"
+					type="text"
+					label="PLG_CAPTCHA_GOOGLE_CALLBACK_LABEL"
+					description="PLG_CAPTCHA_GOOGLE_CALLBACK_DESC"
+					default=""
+					filter="string"
+				/>
+
+				<field
+					name="expired_callback"
+					type="text"
+					label="PLG_CAPTCHA_GOOGLE_EXPIRED_CALLBACK_LABEL"
+					description="PLG_CAPTCHA_GOOGLE_EXPIRED_CALLBACK_DESC"
+					default=""
+					filter="string"
+				/>
+
+				<field
+					name="error_callback"
+					type="text"
+					label="PLG_CAPTCHA_GOOGLE_ERROR_CALLBACK_LABEL"
+					description="PLG_CAPTCHA_GOOGLE_ERROR_CALLBACK_DESC"
+					default=""
+					filter="string"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+
+	<updateservers>
+		<server type="extension" priority="1" name="Google Invisible reCAPTCHA Updates">
+			https://raw.githubusercontent.com/nikosdion/plg_captcha_google/main/update/update.xml
+		</server>
+	</updateservers>
+
+</extension>

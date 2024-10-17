@@ -1,0 +1,3 @@
+/node_modules
+/release/**
+/plugins/captcha/google/vendor
