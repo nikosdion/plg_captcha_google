@@ -1,0 +1,8 @@
+<component name="CopyrightManager">
+  <copyright>
+    <option name="allowReplaceRegexp" value="@copyright" />
+    <option name="keyword" value="@copyright" />
+    <option name="notice" value="@package     plg_captcha_google&#10;@copyright   (C) &amp;#36;originalComment.match(&quot;@copyright   \(C\) (\d+)&quot;, 1, &quot;-&quot;, &quot;&amp;#36;today.year&quot;)&amp;#36;today.year Nicholas K. Dionysopoulos&#10;@license     GPL-3.0+" />
+    <option name="myName" value="Default" />
+  </copyright>
+</component>
