@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="plugin" group="captcha" method="upgrade">
 	<name>plg_captcha_google</name>
-	<version>1.0</version>
-	<creationDate>2024-10-17</creationDate>
+	<version>1.0.0</version>
+	<creationDate>2024-10-18</creationDate>
 	<author>Nicholas K. Dionysopoulos</author>
 	<authorEmail>nicholas_NOSPAM@dionysopoulos.me</authorEmail>
 	<authorUrl>https://www.dionysopoulos.me</authorUrl>
