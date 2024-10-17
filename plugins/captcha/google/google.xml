@@ -15,10 +15,6 @@
 		<folder>src</folder>
 		<folder>vendor</folder>
 	</files>
-	<media folder="media" destination="plg_captcha_google">
-		<folder>css</folder>
-		<folder>js</folder>
-	</media>
 	<languages>
 		<language tag="en-GB">language/en-GB/plg_captcha_google.ini</language>
 		<language tag="en-GB">language/en-GB/plg_captcha_google.sys.ini</language>

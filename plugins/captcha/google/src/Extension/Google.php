@@ -25,6 +25,10 @@ defined('_JEXEC') || die;
 
 final class Google extends CMSPlugin implements SubscriberInterface
 {
+	private const CSS = '.grecaptcha-badge{z-index:999999}';
+
+	private const JS = 'plg_captcha_google_init=()=>[].slice.call(document.getElementsByClassName("g-recaptcha")).forEach(a=>grecaptcha.execute(grecaptcha.render(a,a.dataset)));';
+
 	protected $autoloadLanguage = true;
 
 	public function __construct(
@@ -87,9 +91,9 @@ final class Google extends CMSPlugin implements SubscriberInterface
 		);
 
 		$app->getDocument()->getWebAssetManager()
-			->registerAndUseScript('plg_captcha_google', 'plg_captcha_google/recaptcha.min.js', [], ['defer' => true])
-			->registerAndUseScript('plg_captcha_google.api', $apiSrc, [], ['defer' => true], ['plg_captcha_google'])
-			->registerAndUseStyle('plg_captcha_google', 'plg_captcha_google/recaptcha.css');
+			->addInlineScript(self::JS)
+			->registerAndUseScript('plg_captcha_google.api', $apiSrc, [], ['defer' => true])
+			->addInlineStyle(self::CSS);
 
 		return true;
 	}
