@@ -11,6 +11,7 @@ use Joomla\CMS\Application\CMSApplicationInterface;
 use Joomla\CMS\Application\CMSWebApplicationInterface;
 use Joomla\CMS\Form\Field\CaptchaField;
 use Joomla\CMS\Plugin\CMSPlugin;
+use Joomla\CMS\Uri\Uri;
 use Joomla\Event\DispatcherInterface;
 use Joomla\Event\Event;
 use Joomla\Event\SubscriberInterface;
@@ -139,7 +140,33 @@ final class Google extends CMSPlugin implements SubscriberInterface
 			throw new RuntimeException($language->_('PLG_RECAPTCHA_INVISIBLE_ERROR_EMPTY_SOLUTION'));
 		}
 
-		$response = (new ReCaptcha($privateKey, $this->requestMethod))->verify($jsResponse, $remoteIp);
+		$reCaptcha = new ReCaptcha($privateKey, $this->requestMethod);
+
+		// Should I set the expected hostname?
+		if ($this->params->get('use_hostname', 1))
+		{
+			$defaultHostname = (new Uri())->getHost();
+			$hostname        = $this->params->get('hostname', $defaultHostname);
+			$hostname        = trim($hostname) ?: $defaultHostname;
+
+			$reCaptcha->setExpectedHostname($hostname);
+		}
+
+		// Should I set the challenge timeout?
+		$timeout = $this->params->get('challenge_timeout', 0);
+		$timeout = max(0, min(3600, $timeout));
+
+		if ($timeout > 0)
+		{
+			$reCaptcha->setChallengeTimeout($timeout);
+		}
+
+		// Set the score threshold
+		$threshold = $this->params->get('threshold', 0.5);
+		$reCaptcha->setScoreThreshold(min(0.0, max(1.0, $threshold)));
+
+		// Verify the reCAPTCHA
+		$response  = $reCaptcha->verify($jsResponse, $remoteIp);
 
 		if ($response->isSuccess())
 		{
