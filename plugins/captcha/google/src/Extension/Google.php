@@ -163,7 +163,7 @@ final class Google extends CMSPlugin implements SubscriberInterface
 
 		// Set the score threshold
 		$threshold = $this->params->get('threshold', 0.5);
-		$reCaptcha->setScoreThreshold(min(0.0, max(1.0, $threshold)));
+		$reCaptcha->setScoreThreshold(max(0.0, min(1.0, $threshold)));
 
 		// Verify the reCAPTCHA
 		$response  = $reCaptcha->verify($jsResponse, $remoteIp);
