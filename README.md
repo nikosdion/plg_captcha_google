@@ -19,7 +19,9 @@ This plugin can replace the core Joomla! “CAPTCHA - Invisible reCAPTCHA” plu
 
 Download and install the extension's ZIP file.
 
-Go to System, Manage, Plugins and edit the “CAPTCHA - Google Invisible reCAPTCHA” plugin. You need to enter the Site Key and Secret Key. You can find these in [your reCAPTCHA account](https://www.google.com/recaptcha).
+Go to System, Manage, Plugins and edit the “CAPTCHA - Google Invisible reCAPTCHA” plugin. You need to enter the Site Key and Secret Key. 
+
+⚠️ **IMPORTANT** Up until the end of 2024, you could find your Site Key and Secret Key in [your reCAPTCHA account](https://www.google.com/recaptcha). Starting February 2025, you need to [migrate your reCAPTCHA keys to a Google Cloud Project](https://cloud.google.com/recaptcha/docs/migrate-recaptcha#google-cloud-console). The catch is that you can only run a few thousand CAPTCHAs every month in the [free tier](https://cloud.google.com/recaptcha/docs/compare-tiers); beyond that, you will have to start paying Google for using reCAPTCHA. Please don't flame me for this; I am not Google, not am I affiliated with them. This situation sucks for me as much as it sucks for you. Thank you for your understanding.
 
 Go to System, Global Configuration and select this plugin as your Default CAPTCHA _instead of_ Joomla's now-defunct “CAPTCHA - Invisible reCAPTCHA”. If you have any extensions which were using Joomla's now-defunct plugin explicitly configure in them, remember to edit their options and choose the “CAPTCHA - Google Invisible reCAPTCHA” plugin instead.
 
