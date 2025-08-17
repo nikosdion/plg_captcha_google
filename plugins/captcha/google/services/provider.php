@@ -11,7 +11,7 @@ use Dionysopoulos\Plugin\Captcha\Google\Extension\Google;
 use Dionysopoulos\Plugin\Captcha\Google\Library\JoomlaRequestMethod;
 use Joomla\CMS\Extension\PluginInterface;
 use Joomla\CMS\Factory;
-use Joomla\CMS\Http\HttpFactory;
+use Joomla\Http\HttpFactory;
 use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
@@ -32,7 +32,7 @@ return new class () implements ServiceProviderInterface {
 			fn(Container $container) => new Google(
 				$container->get(DispatcherInterface::class),
 				(array) PluginHelper::getPlugin('captcha', 'google'),
-				new JoomlaRequestMethod(HttpFactory::getHttp()),
+				new JoomlaRequestMethod((new HttpFactory())->getHttp()),
 				Factory::getApplication()
 			)
 		);
