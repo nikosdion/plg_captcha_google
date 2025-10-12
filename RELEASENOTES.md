@@ -6,8 +6,8 @@ You can use this plugin to replace the now-defunct “CAPTCHA - Invisible reCAPT
 
 ### Requirements
 
-* Joomla 5.2 or later
-* PHP 8.1, 8.2, 8.3, or 8.4.
+* Joomla 5.2 or later, up to and including 6.0
+* PHP 8.1, 8.2, 8.3, 8.4, or 8.5.
 
 ### Usage
 
